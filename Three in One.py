@@ -21,8 +21,6 @@
 
 ## While popping, we are popping the value at self.index_at_tops and setting the top as None in case its the last element.
 
-W
-
 class Node:
     
     def __init__(self, value = 0):
@@ -91,7 +89,7 @@ class three_stacks_array:
         return self.stacks[stack_no][self.index_at_tops[stack_no]]
 
     def isEmpty(self, stack_no=1):
-        
+
         if self.index_at_tops[stack_no] == -1:
             return True
         else:
