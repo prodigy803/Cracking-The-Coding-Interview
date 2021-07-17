@@ -132,3 +132,18 @@ print('----------')
 
 print(stacks.pop(stack_no=0))
 print(stacks.peek(stack_no=0))
+
+
+###---------------###
+# Output
+###---------------###
+
+# Opps that stack didnt exist
+# [30, 20, 10]
+# [130, 120, 110]
+# [50, 40, 30]
+# 30
+# 20
+# ----------
+# 20
+# 10
