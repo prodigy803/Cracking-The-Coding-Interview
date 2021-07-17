@@ -136,4 +136,3 @@ print(min_stack1.min())
 # 1
 # 5
 # 10
-
