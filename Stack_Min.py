@@ -131,3 +131,9 @@ min_stack1.pop()
 min_stack1.pop()
 
 print(min_stack1.min())
+
+## Output:
+# 1
+# 5
+# 10
+
