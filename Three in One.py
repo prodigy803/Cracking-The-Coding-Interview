@@ -32,61 +32,58 @@ class three_stacks_array:
 
         self.array = [None for x in range(length)]
 
-        splitter = int(length / 3)
+        splitter = length//3
 
         self.stacks = []
-        self.index_at_tops = []
+        self.index_at_tops = [-1,-1,-1]
 
-        if int(length%3) == 2:
-            self.stacks.append(self.array[ : splitter+1])
-            self.index_at_tops.append(-1)
         
-            self.stacks.append(self.array[ splitter+1: splitter*2+1])
-            self.index_at_tops.append(-1)
+        if int(length%3) == 2:
+            self.stacks.append(self.array[ : splitter])
+        
+            self.stacks.append(self.array[ splitter: splitter*2+1])
 
             self.stacks.append(self.array[ splitter*2+1:])
-            self.index_at_tops.append(-1)
+            
 
         else:
-                
             self.stacks.append(self.array[ : splitter])
-            self.index_at_tops.append(-1)
 
             self.stacks.append(self.array[ splitter: splitter*2])
-            self.index_at_tops.append(-1)
 
-            self.stacks.append(self.array[ splitter*2:])
-            self.index_at_tops.append(-1)
+            self.stacks.append(self.array[splitter*2:])
 
         print(self.stacks)
 
     def append(self,value,stack_no=0):
-
         node = Node(value)
         
-        if self.index_at_tops[stack_no] * -1 == len(self.stacks[stack_no]):
+        if (self.index_at_tops[stack_no] * -1) -1 == len(self.stacks[stack_no]):
             print('stack is full')
+
         else:
-            self.stacks[self.index_at_tops[stack_no]] == node
-            self.index_at_tops[stack_no] -=1
+            print('top_index',str(self.index_at_tops[stack_no]))
 
-    def pop(self,stack_no=0):
-        value_to_be_popped = self.stacks[stack_no][self.index_at_tops[stack_no]]
+            self.stacks[stack_no][self.index_at_tops[stack_no]] = node
 
-        if self.index_at_tops[stack_no] == -2:
-
-            self.stacks[stack_no][self.index_at_tops[stack_no]] = None
             self.index_at_tops[stack_no] -= 1
 
+    def pop(self,stack_no=0):
+
+        
+
+        if self.index_at_tops[stack_no] == -1:
+            return 'Stack is already empty'
         else:
-            self.stacks[stack_no][self.index_at_tops[stack_no]] = self.stacks[stack_no][self.index_at_tops[stack_no]-1]
+            value_to_be_popped = self.stacks[stack_no][self.index_at_tops[stack_no]+1]
+            self.stacks[stack_no][self.index_at_tops[stack_no]+1] = None
             self.index_at_tops[stack_no] += 1
 
-        return value_to_be_popped 
+        return value_to_be_popped.value
 
     def peek(self,stack_no=0):
 
-        return self.stacks[stack_no][self.index_at_tops[stack_no]]
+        return self.stacks[stack_no][self.index_at_tops[stack_no]+1].value
 
     def isEmpty(self, stack_no=1):
 
@@ -94,4 +91,38 @@ class three_stacks_array:
             return True
         else:
             return False
-        
+
+    def print_all_values(self,stack_no=0):
+        print([x.value for x in self.stacks[stack_no]])
+
+# stacks = three_stacks_array(7)
+# stacks1 = three_stacks_array(8)
+stacks = three_stacks_array(9)
+
+
+stacks.append(10,stack_no=0)
+stacks.append(20,stack_no=0)
+stacks.append(30,stack_no=0)
+
+# stacks.append(110,stack_no=1)
+# stacks.append(120,stack_no=1)
+
+# stacks.append(30,stack_no=2)
+# stacks.append(40,stack_no=2)
+# stacks.append(50,stack_no=2)
+
+
+try:
+    stacks.append(50,stack_no=3)
+except:
+    print('Opps that stack didnt exist')
+
+stacks.print_all_values(stack_no=0)
+
+print(stacks.pop(stack_no=0))
+print(stacks.peek(stack_no=0))
+
+print('----------')
+
+print(stacks.pop(stack_no=0))
+print(stacks.peek(stack_no=0))
