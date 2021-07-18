@@ -9,12 +9,16 @@ single stack (ie. Pop should return the same value as if it were a single stack)
 
 ## Since its sort of a dynamic allocation problem, we will assume that the length of stacks shall be 10
 
+## This solution sort of maintains a list of stacks that are added
+
 class Node:
 
     def __init__(self,value=0):
         self.value = value
         self.next = None
         self.previous = None
+
+    
 
 class Single_Stack:
 
@@ -29,7 +33,7 @@ class Single_Stack:
 
         if self.tail == None:
             self.tail = temp_node
-        
+
         else:
             
             self.tail.next = temp_node
@@ -39,7 +43,6 @@ class Single_Stack:
         self.current_length +=1
 
     def pop(self):
-
         value_to_be_returned = self.tail.value
 
         if self.tail.previous != None:
@@ -51,7 +54,7 @@ class Single_Stack:
             self.tail = None
         
         self.current_length -=1
-
+        
         return value_to_be_returned
 
 class SetOfStacks:
@@ -80,34 +83,77 @@ class SetOfStacks:
                 self.stacks[self.tracker_of_stacks].push(temp_node)
 
     def pop(self):
-        len_of_top_stack = self.stacks[self.tracker_of_stacks].current_length 
-
-        if len_of_top_stack == 1:
-            value_to_be_returned = self.stacks[self.tracker_of_stacks]
-            
-            self.stacks.pop()
-
+        if len(self.stacks) == 0:
+            value_to_be_returned = 'Stack of Stacks is empty'
         else:
-            value_to_be_returned = self.stacks[self.tracker_of_stacks].pop()
+
+            len_of_top_stack = self.stacks[self.tracker_of_stacks].current_length 
+
+            if len_of_top_stack == 1:
+                value_to_be_returned = self.stacks[self.tracker_of_stacks].pop().value
+                self.tracker_of_stacks -=1
+                self.stacks.pop()
+
+            else:
+
+                value_to_be_returned = self.stacks[self.tracker_of_stacks].pop().value
 
         return value_to_be_returned
 
-# SS = Single_Stack()
+SS = SetOfStacks()
 
-# SS.push(10)
-# SS.push(1)
-# SS.push(100)
-# SS.push(111)
-# SS.push(2)
-# SS.push(4)
-# SS.push(3)
-# SS.push(10000)
+SS.push(10)
+SS.push(1)
+SS.push(100)
+SS.push(111)
+SS.push(2)
+SS.push(4)
+SS.push(3)
+SS.push(10000)
+SS.push(12)
+SS.push(15)
+SS.push(19)
+SS.push(22)
+SS.push(26)
+SS.push(10)
+SS.push(1)
+SS.push(100)
+SS.push(111)
+SS.push(2)
+SS.push(4)
+SS.push(3)
+SS.push(10000)
+SS.push(12)
+SS.push(15)
+SS.push(19)
+SS.push(22)
+SS.push(26)
 
-# print(SS.pop())
-# print(SS.pop())
-# print(SS.pop())
-# print(SS.pop())
-# print(SS.pop())
-# print(SS.pop())
-# print(SS.pop())
-# print(SS.pop())
+print(SS.pop())
+print(SS.pop())
+print(SS.pop())
+print(SS.pop())
+print(SS.pop())
+print(SS.pop())
+print(SS.pop())
+print(SS.pop())
+print(SS.pop())
+print(SS.pop())
+print(SS.pop())
+print(SS.pop())
+print(SS.pop())
+print(SS.pop())
+print(SS.pop())
+print(SS.pop())
+print(SS.pop())
+print(SS.pop())
+print(SS.pop())
+print(SS.pop())
+print(SS.pop())
+print(SS.pop())
+print(SS.pop())
+print(SS.pop())
+print(SS.pop())
+print(SS.pop())
+print(SS.pop())
+print(SS.pop())
