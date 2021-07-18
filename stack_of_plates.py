@@ -53,7 +53,6 @@ class Single_Stack:
             self.tail.next = None
         
         else:
-            
             self.tail = None
         
         self.current_length -=1
