@@ -9,7 +9,10 @@ single stack (ie. Pop should return the same value as if it were a single stack)
 
 ## Since its sort of a dynamic allocation problem, we will assume that the length of stacks shall be 10
 
-## This solution sort of maintains a list of stacks that are added
+## This solution sort of maintains a list of stacks that are added. We can substitute that with a stack of stacks but that would 
+## increase the codelines. The idea would be the same but we would be implementing three classes, single_stack, stack_of_stacks and 
+## set of stacks that sort of manipulates the stack_of_stacks. To reduce that I have used a list and overall understanding of the text
+
 
 class Node:
 
@@ -157,3 +160,36 @@ print(SS.pop())
 print(SS.pop())
 print(SS.pop())
 print(SS.pop())
+
+
+"""
+Output:
+26
+22
+19
+15
+12
+10000
+3
+4
+2
+111
+100
+1
+10
+26
+22
+19
+15
+12
+10000
+3
+4
+2
+111
+100
+1
+10
+Stack of Stacks is empty
+Stack of Stacks is empty
+"""
