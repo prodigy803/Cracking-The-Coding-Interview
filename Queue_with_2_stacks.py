@@ -104,3 +104,23 @@ print(queue.dequeue())
 print(queue.dequeue())
 print(queue.dequeue())
 print('---')
+
+"""
+Output:
+
+10
+100
+1000
+10000
+100000
+Everything is empty
+---
+10
+---
+100
+10000
+1000000
+Everything is empty
+---
+
+"""
