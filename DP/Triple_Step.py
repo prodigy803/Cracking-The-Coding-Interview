@@ -1,5 +1,9 @@
 # problem 8.1 from page 145
-
+"""
+A child is running up a staircase with n steps and can hop either 1 step, 2 steps, or 3
+steps at a time. Implement a method to count how many possible ways the child can run up the
+stairs.
+"""
 # def tripleStepRecursive(n, hops):
 #     if n == 0:
 #         return []
@@ -55,6 +59,7 @@ def tripleStepTabular(n, hops):
                     table[i+hop] += table[i]
     print(table)
     return table[n]
+
 hops = [2,1]
 # hops = [1,2,3]
 # print(tripleStepRecursive(37, hops))
