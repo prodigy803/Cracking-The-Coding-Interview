@@ -4,24 +4,6 @@ A child is running up a staircase with n steps and can hop either 1 step, 2 step
 steps at a time. Implement a method to count how many possible ways the child can run up the
 stairs.
 """
-# def tripleStepRecursive(n, hops):
-#     if n == 0:
-#         return []
-
-#     if n < 0:
-#         return None
-
-#     for hop in hops:
-#         req_hop = n - hop
-        
-#         returned = tripleStepRecursive(req_hop, hops)
-#         print('returned', returned)
-#         if returned != None:
-#             returned.append(hop)
-#             return returned
-
-#     return returned
-
 import copy
 def tripleStepRecursive(n, hops, hashmap = {}):
     if n in hashmap:
